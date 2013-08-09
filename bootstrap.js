@@ -4,7 +4,7 @@ var express = require('express');
 
 // -- Global Paths
 var views = __dirname + '/views',
-    static_root = __dirname + '/public';
+    static_root = __dirname + '/static';
 
 /**
  * Express base configuration
@@ -15,11 +15,13 @@ module.exports.boot = function(app) {
     /**
      * Global Configuration
      */
+    app.engine('html', require('hogan-express'));
+    app.enable('view cache');
     app.configure(function() {
 
         // -- Define view engine with its options
         app.set('views', views);
-        app.set('view engine', 'jade');
+        app.set('view engine', 'html');
 
         // -- Set uncompressed html output and disable layout templating
         app.locals({

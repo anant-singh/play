@@ -5,8 +5,13 @@
 module.exports = function(app) {
 
     app.get('/', function(req, res) {
+        res.locals = {
+            title: 'Arkathon'
+        };
         res.render('index', {
-            title: 'Arkathon App'
+            partials: {
+                title: 'title'
+            }
         });
     });
 
