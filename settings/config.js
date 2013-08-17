@@ -4,7 +4,7 @@ var settings = {
     'siteName'      : 'arkathon',
     'sessionSecret' : 'sessionSecret',
     'uri'           : 'http://localhost',
-    'port'          : process.env.PORT || 3000,
+    'port'          : process.env.PORT || 8080,
     'debug'         : 0,
     'profile'       : 0
 };

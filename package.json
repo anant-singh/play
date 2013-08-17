@@ -9,6 +9,7 @@
       "express": "3.0.0",
       "hogan-express": "*",
       "colors": "*",
-      "connect-assets": "*"
+      "connect-assets": "*",
+      "mongoose": "3.6.*"
   }
 }

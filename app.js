@@ -20,6 +20,8 @@ require('./bootstrap').boot(app);
 // -- Routes
 require('./routes/index')(app);
 require('./routes/signup')(app);
+require('./routes/login')(app);
+require('./routes/faq')(app);
 
 // -- Only listen on $ node app.js
 logo.print();
