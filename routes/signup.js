@@ -15,4 +15,14 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/signup', function(req, res) {
+        res.locals = {
+            title: 'Arkathon-Post'
+        };
+        res.render('signup', {
+            partials: {
+                title: 'title'
+            }
+        });
+    });
 }
