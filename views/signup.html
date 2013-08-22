@@ -35,9 +35,10 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <!-- Angular JS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="angular/signup/app.js"></script>
-
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
+    <script src="theme/scripts/plugins/angular/angular.min.js"></script>
+    <script src="angular/app.js"></script>
+    <script src="angular/controllers/signupctrl.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -71,7 +72,7 @@
         //]]>
     </script>
 </head>
-<body class="document-body login" ng-app="signupApp">
+<body class="document-body login" ng-app="ArkPlay">
 
 <!-- Wrapper -->
 <div id="login">
@@ -102,11 +103,11 @@
                         <div class="span6">
                             <div class="innerR">
                                 <label class="strong">Name</label>
-                                <input type="text" class="input-block-level" placeholder="Your Name" ng-model="data.name"/>
+                                <input type="text" class="input-block-level" placeholder="Your Name" ng-model="signupForm.name"/>
                                 <label class="strong">Reg No.</label>
-                                <input type="text" class="input-block-level" placeholder="Your Reg. No." ng-model="data.regNo"/>
+                                <input type="text" class="input-block-level" placeholder="Your Reg. No." ng-model="signupForm.regNo"/>
                                 <label class="strong">Ticket Code</label>
-                                <input type="text" class="input-block-level" placeholder="Your Ticket Code" ng-model="data.ticketCode"/>
+                                <input type="text" class="input-block-level" placeholder="Your Ticket Code" ng-model="signupForm.ticketCode"/>
                             </div>
                         </div>
                         <!-- // Column END -->
@@ -115,9 +116,9 @@
                         <div class="span6">
                             <div class="innerL">
                                 <label class="strong">Email</label>
-                                <input type="text" class="input-block-level" placeholder="Your Email Address" ng-model="data.email"/>
+                                <input type="text" class="input-block-level" placeholder="Your Email Address" ng-model="signupForm.email"/>
                                 <label class="strong">Confirm Email</label>
-                                <input type="text" class="input-block-level" placeholder="Confirm Your Email Address" ng-model="data.cnfEmail"/>
+                                <input type="text" class="input-block-level" placeholder="Confirm Your Email Address" ng-model="signupForm.cnfEmail"/>
                                 <!--<a href="index.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"><i></i><span>Create account and</span><span class="strong">Join ARK Play now</span></a>-->
                                 <input type="submit" id="submit" value="Create Account" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"/>
                                 <p>Having troubles? <a href="/faq">Get Help</a></p>

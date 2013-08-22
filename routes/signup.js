@@ -16,13 +16,10 @@ module.exports = function(app) {
     });
 
     app.post('/signup', function(req, res) {
-        res.locals = {
-            title: 'Arkathon-Post'
-        };
-        res.render('signup', {
-            partials: {
-                title: 'title'
-            }
-        });
+        console.log(req.body);
+        var data = {};
+        data.form = req.body;
+        res.json(data);
+        console.log(data);
     });
 }
