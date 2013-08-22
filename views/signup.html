@@ -38,7 +38,9 @@
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
     <script src="theme/scripts/plugins/angular/angular.min.js"></script>
     <script src="angular/app.js"></script>
-    <script src="angular/controllers/signupctrl.js"></script>
+    <script src="angular/controllers/signupCtrl.js"></script>
+    <script src="angular/directives/apSubmit.js"></script>
+    <script src="angular/modules/apForm.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -94,7 +96,7 @@
             <div class="widget-body">
 
                 <!-- Form -->
-                <form ng-submit="submit()">
+                <form name="signupForm" ap-submit="submit()" novalidate>
                     {[{list}]}
                     <!-- Row -->
                     <div class="row-fluid row-merge">
@@ -102,12 +104,12 @@
                         <!-- Column -->
                         <div class="span6">
                             <div class="innerR">
-                                <label class="strong">Name</label>
-                                <input type="text" class="input-block-level" placeholder="Your Name" ng-model="signupForm.name"/>
-                                <label class="strong">Reg No.</label>
-                                <input type="text" class="input-block-level" placeholder="Your Reg. No." ng-model="signupForm.regNo"/>
-                                <label class="strong">Ticket Code</label>
-                                <input type="text" class="input-block-level" placeholder="Your Ticket Code" ng-model="signupForm.ticketCode"/>
+                                <label class="strong">Name <span ng-show="signupForm.name.$error.required">*</span></label>
+                                <input name="name" type="text" class="input-block-level" placeholder="Your Name" ng-model="signupData.name" ng-class="{error: signupForm.name.$invalid}" required/>
+                                <label class="strong">Reg No. <span ng-show="signupForm.regNo.$error.required">*</span></label>
+                                <input name="regNo" type="text" class="input-block-level" placeholder="Your Reg. No." ng-model="signupData.regNo" ng-class="{error: signupForm.regNo.$invalid}" required/>
+                                <label class="strong">Ticket Code <span ng-show="signupForm.ticketCode.$error.required">*</span></label>
+                                <input name="ticketCode" type="text" class="input-block-level" placeholder="Your Ticket Code" ng-model="signupData.ticketCode" ng-class="{error: signupForm.ticketCode.$invalid}" required/>
                             </div>
                         </div>
                         <!-- // Column END -->
@@ -115,12 +117,12 @@
                         <!-- Column -->
                         <div class="span6">
                             <div class="innerL">
-                                <label class="strong">Email</label>
-                                <input type="text" class="input-block-level" placeholder="Your Email Address" ng-model="signupForm.email"/>
+                                <label class="strong">Email <span ng-show="signupForm.email.$error.required">*</span></label>
+                                <input name="email" type="text" class="input-block-level" placeholder="Your Email Address" ng-model="signupData.email" ng-class="{error: signupForm.email.$invalid}" required/>
                                 <label class="strong">Confirm Email</label>
-                                <input type="text" class="input-block-level" placeholder="Confirm Your Email Address" ng-model="signupForm.cnfEmail"/>
-                                <!--<a href="index.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"><i></i><span>Create account and</span><span class="strong">Join ARK Play now</span></a>-->
-                                <input type="submit" id="submit" value="Create Account" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"/>
+                                <input name="cnfEmail" type="text" class="input-block-level" placeholder="Confirm Your Email Address" ng-model="signupData.cnfEmail" ng-class="{error: signupForm.cnfEmail.$invalid}" required/>
+                                <!--<a href="index.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"></a>-->
+                                <button type="submit" id="submit" value="Create Account" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"><i></i><span>Create account and</span><span class="strong">Join ARK Play now</span></button>
                                 <p>Having troubles? <a href="/faq">Get Help</a></p>
                             </div>
                         </div>
@@ -131,7 +133,6 @@
 
                 </form>
                 <!-- // Form END -->
-
 
             </div>
             <!-- // Box END -->

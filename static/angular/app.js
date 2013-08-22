@@ -1,4 +1,4 @@
-angular.module('ArkPlay', []).
+var app = angular.module('ArkPlay', ['apForm']).
     config(function($interpolateProvider){
         $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
     },
