@@ -96,8 +96,7 @@
             <div class="widget-body">
 
                 <!-- Form -->
-                <form name="signupForm" ap-submit="submit()" novalidate>
-                    {[{list}]}
+                <form name="signupForm" ap-attempt ap-submit="submit()" novalidate>
                     <!-- Row -->
                     <div class="row-fluid row-merge">
 
@@ -105,11 +104,11 @@
                         <div class="span6">
                             <div class="innerR">
                                 <label class="strong">Name <span ng-show="signupForm.name.$error.required">*</span></label>
-                                <input name="name" type="text" class="input-block-level" placeholder="Your Name" ng-model="signupData.name" ng-class="{error: signupForm.name.$invalid}" required/>
+                                <input name="name" type="text" class="input-block-level ng-class: {error: signupForm.name.$invalid && signupForm.name.$dirty};" placeholder="Your Name" ng-model="apAccount.name" required/>
                                 <label class="strong">Reg No. <span ng-show="signupForm.regNo.$error.required">*</span></label>
-                                <input name="regNo" type="text" class="input-block-level" placeholder="Your Reg. No." ng-model="signupData.regNo" ng-class="{error: signupForm.regNo.$invalid}" required/>
+                                <input name="regNo" type="text" class="input-block-level ng-class: {error: signupForm.regNo.$invalid && (signupForm.regNo.$dirty || ap.signupForm.attempted)};" placeholder="Your Reg. No." ng-model="apAccount.regNo" required/>
                                 <label class="strong">Ticket Code <span ng-show="signupForm.ticketCode.$error.required">*</span></label>
-                                <input name="ticketCode" type="text" class="input-block-level" placeholder="Your Ticket Code" ng-model="signupData.ticketCode" ng-class="{error: signupForm.ticketCode.$invalid}" required/>
+                                <input name="ticketCode" type="text" class="input-block-level ng-class: {error: signupForm.ticketCode.$invalid && (signupForm.ticketCode.$dirty || ap.signupForm.attempted)};" placeholder="Your Ticket Code" ng-model="apAccount.ticketCode" required/>
                             </div>
                         </div>
                         <!-- // Column END -->
@@ -118,10 +117,13 @@
                         <div class="span6">
                             <div class="innerL">
                                 <label class="strong">Email <span ng-show="signupForm.email.$error.required">*</span></label>
-                                <input name="email" type="text" class="input-block-level" placeholder="Your Email Address" ng-model="signupData.email" ng-class="{error: signupForm.email.$invalid}" required/>
+                                <input name="email" type="text" class="input-block-level ng-class: {error: signupForm.email.$invalid && (signupForm.email.$dirty || ap.signupForm.attempted)};" placeholder="Your Email Address" ng-model="apAccount.email" required/>
                                 <label class="strong">Confirm Email</label>
-                                <input name="cnfEmail" type="text" class="input-block-level" placeholder="Confirm Your Email Address" ng-model="signupData.cnfEmail" ng-class="{error: signupForm.cnfEmail.$invalid}" required/>
-                                <!--<a href="index.html?lang=en&amp;layout_type=fluid&amp;menu_position=menu-left&amp;style=style-default-menus-dark&amp;sidebar_type=collapsible" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"></a>-->
+                                <input name="cnfEmail" type="text" class="input-block-level ng-class: {error: signupForm.cnfEmail.$invalid && (signupForm.cnfEmail.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Email Address" ng-model="apAccount.cnfEmail" required/>
+                                <label class="strong">Password</label>
+                                <input name="password" type="text" class="input-block-level ng-class: {error: signupForm.password.$invalid && (signupForm.password.$dirty || ap.signupForm.attempted)};" placeholder="Your Password" ng-model="apAccount.password" required/>
+                                <label class="strong">Password</label>
+                                <input name="cnfPassword" type="text" class="input-block-level ng-class: {error: signupForm.cnfPassword.$invalid && (signupForm.cnfPassword.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Password" ng-model="apAccount.cnfPassword" required/>
                                 <button type="submit" id="submit" value="Create Account" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"><i></i><span>Create account and</span><span class="strong">Join ARK Play now</span></button>
                                 <p>Having troubles? <a href="/faq">Get Help</a></p>
                             </div>
@@ -136,7 +138,9 @@
 
             </div>
             <!-- // Box END -->
-
+            <div class="widget-footer" ng-show="showMsg">
+                <p class="glyphicons restart"><i></i>{[{notification}]}</p>
+            </div>
         </div>
 
     </div>

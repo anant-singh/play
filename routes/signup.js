@@ -19,6 +19,7 @@ module.exports = function(app) {
         console.log(req.body);
         var data = {};
         data.form = req.body;
+        data.accountCreated = true;
         res.json(data);
         console.log(data);
     });
