@@ -9,7 +9,11 @@ var apSubmitDirective = {
 
                 formElement.bind('submit', function (event) {
                     // if form is not valid cancel it.
-                    if (!formController.$valid) return false;
+                    if (!formController.$valid) {
+                        scope.showMsg = true;
+                        scope.notification = "Enter *Required Fields";
+                        return false;
+                    }
 
                     scope.$apply(function() {
                         fn(scope, {$event:event});

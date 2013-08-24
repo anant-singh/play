@@ -37,10 +37,11 @@
     <!-- Angular JS-->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>-->
     <script src="theme/scripts/plugins/angular/angular.min.js"></script>
+    <script src="angular/directives/apSubmit.js"></script>
+    <script src="angular/directives/apAttempt.js"></script>
+    <script src="angular/modules/apForm.js"></script>
     <script src="angular/app.js"></script>
     <script src="angular/controllers/signupCtrl.js"></script>
-    <script src="angular/directives/apSubmit.js"></script>
-    <script src="angular/modules/apForm.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -74,7 +75,7 @@
         //]]>
     </script>
 </head>
-<body class="document-body login" ng-app="ArkPlay">
+<body class="document-body login" ng-app="ArkPlay" ng-cloak>
 
 <!-- Wrapper -->
 <div id="login">
@@ -107,8 +108,8 @@
                                 <input name="name" type="text" class="input-block-level ng-class: {error: signupForm.name.$invalid && signupForm.name.$dirty};" placeholder="Your Name" ng-model="apAccount.name" required/>
                                 <label class="strong">Email <span ng-show="signupForm.email.$error.required">*</span></label>
                                 <input name="email" type="text" class="input-block-level ng-class: {error: signupForm.email.$invalid && (signupForm.email.$dirty || ap.signupForm.attempted)};" placeholder="Your Email Address" ng-model="apAccount.email" required/>
-                                <label class="strong">Password</label>
-                                <input name="password" type="text" class="input-block-level ng-class: {error: signupForm.password.$invalid && (signupForm.password.$dirty || ap.signupForm.attempted)};" placeholder="Your Password" ng-model="apAccount.password" required/>
+                                <label class="strong">Password <span ng-show="signupForm.password.$error.required">*</span></label>
+                                <input name="password" type="password" class="input-block-level ng-class: {error: signupForm.password.$invalid && (signupForm.password.$dirty || ap.signupForm.attempted)};" placeholder="Your Password" ng-model="apAccount.password" required/>
                                 <label class="strong">Ticket Code <span ng-show="signupForm.ticketCode.$error.required">*</span></label>
                                 <input name="ticketCode" type="text" class="input-block-level ng-class: {error: signupForm.ticketCode.$invalid && (signupForm.ticketCode.$dirty || ap.signupForm.attempted)};" placeholder="Your Ticket Code" ng-model="apAccount.ticketCode" required/>
                             </div>
@@ -123,7 +124,7 @@
                                 <label class="strong">Confirm Email</label>
                                 <input name="cnfEmail" type="text" class="input-block-level ng-class: {error: signupForm.cnfEmail.$invalid && (signupForm.cnfEmail.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Email Address" ng-model="apAccount.cnfEmail" required/>
                                 <label class="strong">Confirm Password</label>
-                                <input name="cnfPassword" type="text" class="input-block-level ng-class: {error: signupForm.cnfPassword.$invalid && (signupForm.cnfPassword.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Password" ng-model="apAccount.cnfPassword" required/>
+                                <input name="cnfPassword" type="password" class="input-block-level ng-class: {error: signupForm.cnfPassword.$invalid && (signupForm.cnfPassword.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Password" ng-model="apAccount.cnfPassword" required/>
                                 <button type="submit" id="submit" value="Create Account" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"><i></i><span>Create account and</span><span class="strong">Join ARK Play now</span></button>
                                 <p>Having troubles? <a href="/faq">Get Help</a></p>
                             </div>

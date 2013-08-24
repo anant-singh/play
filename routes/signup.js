@@ -20,6 +20,7 @@ module.exports = function(app) {
         var data = {};
         data.form = req.body;
         data.accountCreated = true;
+        data.notification = "Account Created Successfully";
         res.json(data);
         console.log(data);
     });

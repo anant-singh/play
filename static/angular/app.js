@@ -7,5 +7,7 @@ var app = angular.module('ArkPlay', ['apForm']).
             when('/signup', {
                 controller: SignupCtrl
             });
+        $locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix("#!");
     }]
 );
