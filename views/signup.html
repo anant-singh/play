@@ -50,6 +50,7 @@
 
     <!-- Main Theme Stylesheet :: CSS -->
     <link href="theme/css/style-default-menus-dark.css?1374506526" rel="stylesheet" type="text/css" />
+    <link href="theme/css/arkplay.css" rel="stylesheet" type="text/css" />
 
 
     <!-- FireBug Lite -->
@@ -108,8 +109,8 @@
                                 <input name="name" type="text" class="input-block-level ng-class: {error: signupForm.name.$invalid && signupForm.name.$dirty};" placeholder="Your Name" ng-model="apAccount.name" required/>
                                 <label class="strong">Email <span ng-show="signupForm.email.$error.required">*</span></label>
                                 <input name="email" type="text" class="input-block-level ng-class: {error: signupForm.email.$invalid && (signupForm.email.$dirty || ap.signupForm.attempted)};" placeholder="Your Email Address" ng-model="apAccount.email" required/>
-                                <label class="strong">Password <span ng-show="signupForm.password.$error.required">*</span></label>
-                                <input name="password" type="password" class="input-block-level ng-class: {error: signupForm.password.$invalid && (signupForm.password.$dirty || ap.signupForm.attempted)};" placeholder="Your Password" ng-model="apAccount.password" required/>
+                                <label class="strong">Confirm Email</label>
+                                <input name="cnfEmail" type="text" class="input-block-level ng-class: {error: signupForm.cnfEmail.$invalid && (signupForm.cnfEmail.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Email Address" ng-model="apAccount.cnfEmail" required/>
                                 <label class="strong">Ticket Code <span ng-show="signupForm.ticketCode.$error.required">*</span></label>
                                 <input name="ticketCode" type="text" class="input-block-level ng-class: {error: signupForm.ticketCode.$invalid && (signupForm.ticketCode.$dirty || ap.signupForm.attempted)};" placeholder="Your Ticket Code" ng-model="apAccount.ticketCode" required/>
                             </div>
@@ -121,8 +122,8 @@
                             <div class="innerL">
                                 <label class="strong">Reg No. <span ng-show="signupForm.regNo.$error.required">*</span></label>
                                 <input name="regNo" type="text" class="input-block-level ng-class: {error: signupForm.regNo.$invalid && (signupForm.regNo.$dirty || ap.signupForm.attempted)};" placeholder="Your Reg. No." ng-model="apAccount.regNo" required/>
-                                <label class="strong">Confirm Email</label>
-                                <input name="cnfEmail" type="text" class="input-block-level ng-class: {error: signupForm.cnfEmail.$invalid && (signupForm.cnfEmail.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Email Address" ng-model="apAccount.cnfEmail" required/>
+                                <label class="strong">Password <span ng-show="signupForm.password.$error.required">*</span></label>
+                                <input name="password" type="password" class="input-block-level ng-class: {error: signupForm.password.$invalid && (signupForm.password.$dirty || ap.signupForm.attempted)};" placeholder="Your Password" ng-model="apAccount.password" required/>
                                 <label class="strong">Confirm Password</label>
                                 <input name="cnfPassword" type="password" class="input-block-level ng-class: {error: signupForm.cnfPassword.$invalid && (signupForm.cnfPassword.$dirty || ap.signupForm.attempted)};" placeholder="Confirm Your Password" ng-model="apAccount.cnfPassword" required/>
                                 <button type="submit" id="submit" value="Create Account" class="btn btn-icon-stacked btn-block btn-success glyphicons user_add"><i></i><span>Create account and</span><span class="strong">Join ARK Play now</span></button>
@@ -139,8 +140,8 @@
 
             </div>
             <!-- // Box END -->
-            <div class="widget-footer" ng-show="showMsg">
-                <p class="glyphicons restart"><i></i>{[{notification}]}</p>
+            <div class="alert" ng-class="{true:'alert-error', false:'alert-success'}[error]" ng-show="showMsg">
+                {[{notification}]}
             </div>
         </div>
 

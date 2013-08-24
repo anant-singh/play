@@ -22,6 +22,7 @@ require('./routes/index')(app);
 require('./routes/signup')(app);
 require('./routes/login')(app);
 require('./routes/faq')(app);
+require('./routes/test')(app);
 
 // -- Only listen on $ node app.js
 logo.print();

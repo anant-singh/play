@@ -11,7 +11,7 @@ var apSubmitDirective = {
                     // if form is not valid cancel it.
                     if (!formController.$valid) {
                         scope.showMsg = true;
-                        scope.notification = "Enter *Required Fields";
+                        scope.notification = "Warning! " + "Enter *Required Fields";
                         return false;
                     }
 
